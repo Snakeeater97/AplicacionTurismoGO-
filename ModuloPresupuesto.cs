@@ -67,11 +67,14 @@ namespace AplicacionTurismoGO_
             };
 
         }
-        public void AgregarVueloAlPresupuesto(string vuelo, int cantidadPasajeros)
+        public void AgregarVueloAlPresupuesto(string vuelo, int cantidadAdultos, int cantidadMenores, int cantidadInfantes)
         {
             // Lógica para agregar el vuelo al presupuesto
-            decimal precioPorPasajero = 100.0m; // Precio ficticio por pasajero (puedes ajustarlo según tus necesidades)
-            decimal precioTotal = cantidadPasajeros * precioPorPasajero;
+            decimal precioPorAdulto = 100.0m; // Precio ficticio por adulto
+            decimal precioPorMenor = 50.0m; // Precio ficticio por menor
+            decimal precioPorInfante = 20.0m; // Precio ficticio por infante
+
+            decimal precioTotal = (cantidadAdultos * precioPorAdulto) + (cantidadMenores * precioPorMenor) + (cantidadInfantes * precioPorInfante);
 
             Producto producto = new Producto
             {
@@ -81,7 +84,8 @@ namespace AplicacionTurismoGO_
 
             presupuesto.Add(producto);
         }
-        
+
+
     }
     public class Producto
     {
